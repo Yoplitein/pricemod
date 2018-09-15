@@ -65,7 +65,9 @@ public class PriceMod implements WurmServerMod, ItemTemplatesCreatedListener, Co
         ItemTemplate template = ItemTemplateFactory.getInstance().getTemplateOrNull(id);
         
         if(template == null)
-            throw new HookException(String.format("Couldn't find template with id %d", id));
+            throw new HookException(String.format("Couldn't find item template with id %d", id));
+        
+        System.out.printf("Setting item %d (%s) price to %d irons\n", id, template.getName(), priceMods.get(id));
         
         try
         {
